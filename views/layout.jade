@@ -1,7 +1,46 @@
 doctype 5
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+
+	head
+		title Tune The Air
+
+		// -------------------- Stylesheets -------------------- //
+		link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+		link(rel='stylesheet', href='/stylesheets/style.css')
+
+	body
+
+		// -------------------- Navbar (Top) ------------------- //
+		.navbar
+			.navbar-inverse
+				.navbar-fixed-top
+					.navbar-inner
+						.container
+							.pull-left
+								ul.nav
+									li.active
+										a(href='') Home
+								.nav
+									.navbar-search 
+										input.search-query.span7(type='text', placeholder='Search')
+							.pull-right
+								ul.nav
+									li
+										a(href='mailto:rzhou186@stanford.edu') Contact
+
+		block content
+
+		// -------------------- Navbar (Bottom) ------------------- //
+		.navbar
+			.navbar-inverse
+				.navbar-fixed-bottom
+					.navbar-inner
+						.container
+							ul.nav
+								li
+									a A Ray Zhou Production
+
+		// -------------------- Javascripts -------------------- //
+		script(src='/javascripts/jquery-1.9.1.min.js')
+		script(src='/javascripts/bootstrap.min.js')
+		script(src='/javascripts/main.js')

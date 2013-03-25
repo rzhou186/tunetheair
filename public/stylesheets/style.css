@@ -1,8 +1,67 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	background-color: #c31427;
 }
 
-a {
-  color: #00B7FF;
+.navbar-fixed-top {
+	font-weight: bold;
+}
+
+.navbar-fixed-bottom .container .nav > li > a {
+	font-weight: bold;
+	color: #ffffff;
+}
+
+.navbar-fixed-bottom .container > .nav {
+	float: none;
+	display: inline-block;
+}
+
+.navbar-fixed-bottom .container {
+	text-align: center;
+	height: 40px;
+}
+
+.app-window {
+	position: fixed;
+	padding: 50px 20px 20px 20px;
+	margin-bottom: 30px;
+}
+
+.app-window .header {
+	text-align: center;
+	width: 880px;
+  margin-bottom: 30px;
+}
+
+.app-window .header img {
+	border: solid;
+	border-width: 4px;
+	border-color: #333333;
+	display: inline-block;
+}
+
+.app-window .playlist {
+	background-color: #1b1b1b;
+	color: #ffffff;
+	border: solid;
+	border-width: 1px;
+	border-color: rgba(255, 255, 255, 0.6);
+	float: left;
+	width: 878px;
+	-webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+}
+
+.app-window .playlist .title {
+	border-bottom: solid;
+	font-size: 18px;
+	border-width: 1px;
+	border-color: rgba(255, 255, 255, 0.6);
+	padding: 10px 10px 0px 10px;
+	margin-bottom: 10px;
+}
+
+.app-window .playlist .song {
+	padding: 0px 10px 8px 10px;
 }
