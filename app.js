@@ -43,11 +43,22 @@ server.listen(port, function(){
 
 io.sockets.on('connection', function (socket) {
 
+  /* -------------------- Variables ------------------- */
+
+  var currRoom = null;
+
   /* -------------------- Functions ------------------- */
 
+  /*
+   * Function: 'getRoom'
+   * Finds a room by its name, and returns it.
+   * 
+   */  
+  function getRoom (roomID){
+    for (var )
+  }
 
   /* -------------- Actions & Listeners --------------- */
-
 
   // Ping the socket for its current room data (if any).
   socket.emit('fetch room data');
@@ -57,9 +68,11 @@ io.sockets.on('connection', function (socket) {
    * Subscribes the socket to its appropriate room.
    * 
    */
-  socket.on('subscribe', function (roomName, roomID) {
+  socket.on('subscribe', function (roomID) {
 
     if (roomName !== null && roomID !== null){
+
+      socket.join(roomID);
 
 
     }

@@ -5,7 +5,7 @@
  *  
  */
 
-function initSocket(socket, roomName, roomID){
+function initSocket(socket, roomID){
 
 	/*
    * Listener: 'get room'
@@ -13,7 +13,7 @@ function initSocket(socket, roomName, roomID){
    * 
    */
  	socket.on('fetch room data', function () {
-		socket.emit('subscribe', roomName, roomID);
+		socket.emit('subscribe', roomID);
   });
 
 
