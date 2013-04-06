@@ -27,8 +27,9 @@ $(document).ready(function(){
 function get_yt_embed(url) {
   var videoid = url.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
   if(videoid != null) {
-    return "<iframe id=\"ytplayer\" type=\"text/html\" width=\"640\" height=\"390\" src=\"http://www.youtube.com/embed/" + videoid[1] + "?autoplay=1&origin=http://example.com\" frameborder=\"0\"/>";
+    return "<iframe id=\"ytplayer\" type=\"text/html\" width=\"640\" height=\"390\" src=\"http://www.youtube.com/embed/" + videoid[1] + "?autoplay=1\" frameborder=\"0\"/>";
   } else {
     alert('Could not find youtube video id');
+    return "";
   }
 }
