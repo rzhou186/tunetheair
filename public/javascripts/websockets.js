@@ -7,6 +7,6 @@
 
 function initSocket(socket){
   socket.on('newvideo', function(data) {
-    alert(data); // TODO should add the video to the queue here
+      document.getElementById('songqueue').innerHTML += get_yt_embed(data);
   });
 }
