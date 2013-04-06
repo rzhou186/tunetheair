@@ -43,19 +43,37 @@ server.listen(port, function(){
 
 io.sockets.on('connection', function (socket) {
 
-  // Subscribe the socket to the default room.
-  socket.join('default');
-  console.log('Joined default room.');
+  /* -------------------- Functions ------------------- */
 
+
+  /* -------------- Actions & Listeners --------------- */
+
+
+  // Ping the socket for its current room data (if any).
+  socket.emit('fetch room data');
+
+  /*
+   * Listener: 'subscribe'
+   * Subscribes the socket to its appropriate room.
+   * 
+   */
+  socket.on('subscribe', function (roomName, roomID) {
+
+    if (roomName !== null && roomID !== null){
+
+
+    }
+
+  });  
 
   /*
    * Listener: 'unsubscribe'
-   * Unsubscribes the socket from the default room.
+   * Unsubscribes the socket from its current room.
    * Triggered whenever any socket disconnects.
    * 
    */
   socket.on('unsubscribe', function () {
-    socket.leave('default');
+    
   });
 
 });
