@@ -16,4 +16,11 @@ $(document).ready(function(){
 	// Initialize Tinysong
 	initTinysong();
 
+  document.getElementById('yturl').addEventListener("keydown", function(e) {
+    if (!e) { var e = window.event; }
+    // Enter is pressed
+    if (e.keyCode == 13) {
+      socket.emit('addvideo', {'url': document.getElementById('yturl').value});
+    }
+  }, false);
 });
