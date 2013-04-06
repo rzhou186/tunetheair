@@ -28,10 +28,14 @@ $(document).ready(function(){
       }
     }
   }, false);
+  
 });
 
-/* -------------------- Gets youtube embed code for a particular youtube URL -------------------- */
-
+/*
+ * Function: 'get_yt_embed'
+ * Fetches Youtube embed code and returns it
+ * 
+ */
 function get_yt_embed(url) {
   var videoid = url.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
   if(videoid != null) {

@@ -45,17 +45,37 @@ io.sockets.on('connection', function (socket) {
 
   /* -------------------- Variables ------------------- */
 
-  var currRoom = null;
+  var currRoomID = null;
 
   /* -------------------- Functions ------------------- */
 
   /*
    * Function: 'getRoom'
-   * Finds a room by its name, and returns it.
+   * Gets a room from the list of rooms, provided the room ID
    * 
    */
-  function getRoom (roomID){
-    for (var )
+  function getRoom (roomID)
+    return io.sockets.manager.rooms['/' + roomID];
+  }
+
+  /*
+   * Function: 'getRoomPlaylist'
+   * Gets the current room's palylist
+   * 
+   */
+  function getRoomPlaylist (){
+    var currRoom = getRoom(currRoomID);
+    return currRoom.playlist;
+  }
+
+  /*
+   * Function: 'addVideo'
+   * Adds a video to the current room's playlist
+   * 
+   */
+  function addVideo (videoName){
+    var currRoom = getRoom(currRoomID);
+    currRoom.playlist[currRoom.playlist.length] = videoName;
   }
 
   /* -------------- Actions & Listeners --------------- */
@@ -70,10 +90,12 @@ io.sockets.on('connection', function (socket) {
    */
   socket.on('subscribe', function (roomID) {
 
-    if (roomName !== null && roomID !== null){
+    if (roomID !== null){
 
       socket.join(roomID);
+      currRoomID = roomID;
 
+      socket.emit('join room', getRoomPlaylist());
 
     }
 

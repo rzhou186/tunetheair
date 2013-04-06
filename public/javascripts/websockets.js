@@ -16,8 +16,29 @@ function initSocket(socket, roomID){
 		socket.emit('subscribe', roomID);
   });
 
+  /*
+   * Listener: 'join room'
+   * 
+   * 
+   */
+  socket.on('join room', function (playlist) {
+
+    // Append all videos in the current playlist to the     
+    for (var i=0; i<playlist.length; i++){
+
+      document.getElementById('songqueue').innerHTML += get_yt_embed(data);
+
+    }
+
+  });
+  
+  /*
+   * Listener: 'newvideo'
+   * Appends a new video to the DOM
+   * 
+   */
   socket.on('newvideo', function(data) {
-      document.getElementById('songqueue').innerHTML = get_yt_embed(data);
+    document.getElementById('songqueue').innerHTML = get_yt_embed(data);
   });
 
 }
