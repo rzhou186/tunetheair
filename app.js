@@ -4,12 +4,13 @@
  */
 
 var express = require('express')
+  , app = express()
   , routes = require('./routes')
   , user = require('./routes/user')
+  , path = require('path')
   , http = require('http')
-  , path = require('path');
-
-var app = express();
+  , server = http.createServer(app)
+  , io = require('socket.io').listen(server);
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
@@ -32,6 +33,29 @@ app.configure('development', function(){
 app.get('/', routes.index);
 app.get('/users', user.list);
 
-http.createServer(app).listen(app.get('port'), function(){
+var port = process.env.PORT || app.get('port');
+
+server.listen(port, function(){
   console.log("Express server listening on port " + app.get('port'));
+});
+
+/* -------------------- Websocket Management -------------------- */
+
+io.sockets.on('connection', function (socket) {
+
+  // Subscribe the socket to the default room.
+  socket.join('default');
+  console.log('Joined default room.');
+
+
+  /*
+   * Listener: 'unsubscribe'
+   * Unsubscribes the socket from the default room.
+   * Triggered whenever any socket disconnects.
+   * 
+   */
+  socket.on('unsubscribe', function () {
+    socket.leave('default');
+  });
+
 });

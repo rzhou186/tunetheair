@@ -20,13 +20,12 @@ html
 								ul.nav
 									li.active
 										a(href='') Home
-								.nav
-									.navbar-search 
-										input.search-query.span7(type='text', placeholder='Search')
-							.pull-right
-								ul.nav
 									li
-										a(href='mailto:rzhou186@stanford.edu') Contact
+										a(href='#') Rooms
+								.nav
+									form#songsearch
+										.navbar-search 
+											input.search-query.span7(type='text', placeholder='Search a song...')
 
 		block content
 
@@ -43,4 +42,7 @@ html
 		// -------------------- Javascripts -------------------- //
 		script(src='/javascripts/jquery-1.9.1.min.js')
 		script(src='/javascripts/bootstrap.min.js')
+		script(src='/socket.io/socket.io.js')
+		script(src='/javascripts/websockets.js')
+		script(src='/javascripts/tinysong.js')
 		script(src='/javascripts/main.js')
