@@ -7,6 +7,6 @@
 
 function initSocket(socket){
   socket.on('newvideo', function(data) {
-      document.getElementById('songqueue').innerHTML += get_yt_embed(data);
+      document.getElementById('songqueue').innerHTML = get_yt_embed(data);
   });
 }

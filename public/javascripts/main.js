@@ -17,7 +17,12 @@ $(document).ready(function(){
     if (!e) { var e = window.event; }
     // Enter is pressed
     if (e.keyCode == 13) {
-      socket.emit('addvideo', {'url': document.getElementById('yturl').value});
+      var url = document.getElementById('yturl').value;
+      if (get_yt_embed(url) != "") {
+        socket.emit('addvideo', {'url': document.getElementById('yturl').value});
+      } else {
+        alert('That doesn\'t look like a valid youtube URL.');
+      }
     }
   }, false);
 });
@@ -29,7 +34,6 @@ function get_yt_embed(url) {
   if(videoid != null) {
     return "<iframe id=\"ytplayer\" type=\"text/html\" width=\"640\" height=\"390\" src=\"http://www.youtube.com/embed/" + videoid[1] + "?autoplay=1\" frameborder=\"0\"/>";
   } else {
-    alert('Could not find youtube video id');
     return "";
   }
 }
