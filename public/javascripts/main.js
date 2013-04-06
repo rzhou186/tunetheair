@@ -13,7 +13,4 @@ $(document).ready(function(){
 	var socket = io.connect(window.location.hostname);
 	initSocket(socket);
 
-	// Initialize Tinysong
-	initTinysong();
-
 });
