@@ -16,6 +16,8 @@ function initSocket(socket, roomID){
 		socket.emit('subscribe', roomID);
   });
 
-
+  socket.on('newvideo', function(data) {
+      document.getElementById('songqueue').innerHTML = get_yt_embed(data);
+  });
 
 }

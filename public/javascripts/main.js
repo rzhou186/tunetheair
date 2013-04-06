@@ -16,4 +16,27 @@ $(document).ready(function(){
 	var socket = io.connect(window.location.hostname);
 	initSocket(socket, roomID);
 
+  document.getElementById('yturl').addEventListener("keydown", function(e) {
+    if (!e) { var e = window.event; }
+    // Enter is pressed
+    if (e.keyCode == 13) {
+      var url = document.getElementById('yturl').value;
+      if (get_yt_embed(url) != "") {
+        socket.emit('addvideo', {'url': document.getElementById('yturl').value});
+      } else {
+        alert('That doesn\'t look like a valid youtube URL.');
+      }
+    }
+  }, false);
 });
+
+/* -------------------- Gets youtube embed code for a particular youtube URL -------------------- */
+
+function get_yt_embed(url) {
+  var videoid = url.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
+  if(videoid != null) {
+    return "<iframe id=\"ytplayer\" type=\"text/html\" width=\"640\" height=\"390\" src=\"http://www.youtube.com/embed/" + videoid[1] + "?autoplay=1\" frameborder=\"0\"/>";
+  } else {
+    return "";
+  }
+}

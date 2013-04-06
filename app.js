@@ -53,7 +53,7 @@ io.sockets.on('connection', function (socket) {
    * Function: 'getRoom'
    * Finds a room by its name, and returns it.
    * 
-   */  
+   */
   function getRoom (roomID){
     for (var )
   }
