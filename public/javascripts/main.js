@@ -25,6 +25,10 @@ $(document).ready(function(){
 /* -------------------- Gets youtube embed code for a particular youtube URL -------------------- */
 
 function get_yt_embed(url) {
-  // note : for now url has to be the video code, should make this get it from the full url instead later
-  return "<iframe id=\"ytplayer\" type=\"text/html\" width=\"640\" height=\"390\" src=\"http://www.youtube.com/embed/" + url + "?autoplay=1&origin=http://example.com\" frameborder=\"0\"/>";
+  var videoid = url.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
+  if(videoid != null) {
+    return "<iframe id=\"ytplayer\" type=\"text/html\" width=\"640\" height=\"390\" src=\"http://www.youtube.com/embed/" + videoid[1] + "?autoplay=1&origin=http://example.com\" frameborder=\"0\"/>";
+  } else {
+    alert('Could not find youtube video id');
+  }
 }
