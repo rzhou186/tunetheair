@@ -2,30 +2,13 @@ doctype 5
 html
 
 	head
-		title Tune The Air
+		title Tune the Air
 
 		// -------------------- Stylesheets -------------------- //
-		link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+		link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
 		link(rel='stylesheet', href='/stylesheets/style.css')
 
 	body
-
-		// -------------------- Navbar (Top) ------------------- //
-		.navbar
-			.navbar-inverse
-				.navbar-fixed-top
-					.navbar-inner
-						.container
-							.pull-left
-								ul.nav
-									li.active
-										a(href='') Home
-									li
-										a(href='#') Rooms
-								.nav
-									form#songsearch
-										.navbar-search 
-											input.search-query.span7(type='text', placeholder='Search a song...')
 
 		block content
 
@@ -37,16 +20,15 @@ html
 						.container
 							ul.nav
 								li
-									a A Ray Zhou Production
+									a A Jan Dlabal, Ray Zhou, and Shubham Goel Production
 
 		// -------------------- Javascripts -------------------- //
 		script(src='/javascripts/Queue.js')
 		script(src='/javascripts/jquery-1.9.1.min.js')
-		script(src='/javascripts/bootstrap.min.js')
-		script(src='/javascripts/main.js')
-		script(src='/javascripts/youtube.js')
+		script(src='/bootstrap/js/bootstrap.min.js')
 		script(src='/socket.io/socket.io.js')
 		script(src='/javascripts/cookies.js')
 		script(src='/javascripts/websockets.js')
-
+		script(src='/javascripts/youtube.js')
+		script(src='/javascripts/main.js')
 
