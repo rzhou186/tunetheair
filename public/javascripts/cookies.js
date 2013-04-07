@@ -53,3 +53,12 @@ function getCookie(name){
   return null;
 
 }
+
+/*
+ * Function: clearCookie()
+ * Clears the client's associated cookies
+ * 
+ */
+function clearCookie(name){
+   document.cookie = encodeURIComponent(name) + "=deleted; expires=" + new Date(0).toUTCString();
+}

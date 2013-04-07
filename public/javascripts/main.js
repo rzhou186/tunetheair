@@ -27,6 +27,14 @@ $(document).ready(function(){
 		socket.emit('new room', 'sample title');
 	});
 
+	// Initialize leave room button
+	$('#leave-room').click(function(){
+
+		clearCookie('roomID');
+		location.reload();
+
+	});
+
   document.getElementById('yturl').addEventListener("keydown", function(e) {
     if (!e) { var e = window.event; }
     // Enter is pressed
