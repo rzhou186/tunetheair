@@ -23,7 +23,7 @@ $(document).ready(function(){
 	});
 
 	$('#join-room').click(function(){
-		socket.emit('subscribe', 0);
+		socket.emit('subscribe', 1);
 	});
 
   document.getElementById('yturl').addEventListener("keydown", function(e) {
