@@ -20,6 +20,9 @@ $(document).ready(function(){
 	// Initialize Socket.io
 	var socket = io.connect(window.location.hostname);
 	initSocket(socket, roomID);
+  if (roomID !== undefined) {
+    socket.emit('subscribe', roomID);
+  }
 
 	// Initialize room creating and joining
 	$('#new-room').click(function(){
@@ -54,7 +57,7 @@ $(document).ready(function(){
 
 /*
  * Function: 'get_yt_embed'
- * Fetches Youtube embed code and returns it
+ * returns just youtube id given a youtube url
  * 
  */
 function get_yt_embed(url) {
@@ -66,3 +69,14 @@ function get_yt_embed(url) {
     return "";
   }
 }
+
+/*
+ * Function: 'get_yt_title'
+ * Fetches Youtube video title
+ */
+function get_yt_title(ytid) {
+  $.get('https://gdata.youtube.com/feeds/api/videos/' + ytid + '?v=2', function (data) {
+    alert(data);
+  });
+}
+
