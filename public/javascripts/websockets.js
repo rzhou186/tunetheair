@@ -37,11 +37,11 @@ function initSocket(socket, roomID){
       videoList.enqueue(get_yt_embed(playlist[j]));
     }
     updateSideBar();
-    if (videoList.getLength() >= 1) {
-      if (player !== undefined) {
+   /* if (videoList.getLength() >= 1) {
+      if (player !== undefined && player !== null) {
         player.stopVideo();
       }
-    }
+    }*/
 
     $('.landing-window').hide();
     $('.main-components').show();

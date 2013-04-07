@@ -7,8 +7,12 @@
 
 /* -------------------- Youtube API calls. -------------------- */
 
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
   var videoList = new Queue();
-  var player;
+  var player = null;
   // Called once API is ready. Initializes player.
   function onYouTubeIframeAPIReady() {
         player = new YT.Player('ytplayer', {
@@ -48,8 +52,7 @@
                 socket.emit('removevideo');
           }
           if(event.data == YT.PlayerState.CUED) {
-
-              if(videoList.getLength() >= 1 && loaded == false) {
+            if(videoList.getLength() >= 1 && loaded == false) {
                   player.loadVideoById(videoList.peek());
                   loaded = true;
               }
@@ -57,13 +60,14 @@
               player.playVideo();
           }
           if(event.data == YT.PlayerState.UNSTARTED) {
-           // alert("In unstarted state");
+            if(videoList.getLength() >= 1 && loaded == false) {
+              player.loadVideoById(videoList.peek());
+              loaded = true;
+            }
         }
         if(event.data == YT.PlayerState.PAUSED) {
-         // alert("In paused state");
         }
         if(event.data == YT.PlayerState.BUFFERING) {
-       //   alert("In buffering state");
         }
          //   while(!videoList.isEmpty()) {
               

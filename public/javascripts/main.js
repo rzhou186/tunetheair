@@ -12,10 +12,10 @@ var socket;
 $(document).ready(function(){
 
   // Download the iframe API
-  var tag = document.createElement('script');
+  /*var tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
   var firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag); */
 	// Check cookies for current room name and ID (if any)
 	var roomID = getCookie('roomID');
 
