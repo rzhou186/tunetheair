@@ -9,6 +9,11 @@
 
 $(document).ready(function(){
 
+  // Download the iframe API
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 	// Check cookies for current room name and ID (if any)
 	var roomID = getCookie('roomID');
 
@@ -37,7 +42,7 @@ $(document).ready(function(){
         alert('That doesn\'t look like a valid youtube URL.');
       }
     }
-  }, false);
+  }, false); 
 
 });
 
@@ -49,7 +54,8 @@ $(document).ready(function(){
 function get_yt_embed(url) {
   var videoid = url.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
   if(videoid != null) {
-    return "<iframe id=\"ytplayer\" type=\"text/html\" width=\"640\" height=\"390\" src=\"http://www.youtube.com/embed/" + videoid[1] + "?autoplay=1\" frameborder=\"0\"/>";
+  return videoid[1];
+  //  return "<iframe id=\"ytplayer\" type=\"text/html\" width=\"640\" height=\"390\" src=\"http://www.youtube.com/embed/" + videoid[1] + "?autoplay=1\" frameborder=\"0\"/>";
   } else {
     return "";
   }
