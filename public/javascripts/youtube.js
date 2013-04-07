@@ -26,6 +26,9 @@
   function onPlayerReady(event) {
      //  player.loadPlaylist(['mGalEx6ufUw', 'TaCUBtzKAnA', '4v8SPz4VfsU']);
      //  player.playVideo();
+    if (videoList.getLength() >= 1) {
+      player.stopVideo();
+    }
   }
 
   var done = false;
@@ -41,11 +44,12 @@
                 videoList.dequeue();
                 if(!videoList.isEmpty()) 
                   player.loadVideoById(videoList.peek());
+                updateSideBar();
                 socket.emit('removevideo');
           }
           if(event.data == YT.PlayerState.CUED) {
 
-              if(videoList.getLength() == 1 && loaded == false) {
+              if(videoList.getLength() >= 1 && loaded == false) {
                   player.loadVideoById(videoList.peek());
                   loaded = true;
               }

@@ -36,7 +36,6 @@ function initSocket(socket, roomID){
     for (var j=0; j<playlist.length; j++){
       videoList.enqueue(get_yt_embed(playlist[j]));
     }
-    if (videoList.getLength() == 1) player.stopVideo();
     updateSideBar();
 
     $('.landing-window').hide();
@@ -72,7 +71,7 @@ function updateSideBar() {
   for (i=1; i<4; i++) {
     if (queueLen > i) {
       var id = videoList.peek2(i);
-      document.getElementById('vp-'+i).getElementsByClassName('info')[0].innerHTML = id;
+      get_yt_title(id, document.getElementById('vp-'+i).getElementsByClassName('info')[0]);
       document.getElementById('vp-'+i).getElementsByClassName('icon')[0].innerHTML = "<img src='http://img.youtube.com/vi/" + id + "/hqdefault.jpg'>";
     } else {
       document.getElementById('vp-'+i).getElementsByClassName('info')[0].innerHTML = '';

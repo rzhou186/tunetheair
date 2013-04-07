@@ -5,6 +5,8 @@
  * 
  */
 
+var socket;
+
 /* -------------------- Webpage Initialization -------------------- */
 
 $(document).ready(function(){
@@ -18,7 +20,7 @@ $(document).ready(function(){
 	var roomID = getCookie('roomID');
 
 	// Initialize Socket.io
-	var socket = io.connect(window.location.hostname);
+	socket = io.connect(window.location.hostname);
 	initSocket(socket, roomID);
 
 	// Initialize room creating and joining
@@ -76,10 +78,10 @@ function get_yt_embed(url) {
  * Function: 'get_yt_title'
  * Fetches Youtube video title
  */
-function get_yt_title(ytid) {
+function get_yt_title(ytid, element) {
   $.get('https://gdata.youtube.com/feeds/api/videos/' + ytid + '?v=2', function (xml) {
-      alert($(xml).find('entry').find('title').text());
-      // TODO this should return the above except it's asynchronous so wtf
+      var s = $(xml).find('entry').find('title').text();
+      element.innerHTML = s.slice(0, s.length/2);
   });
 }
 
