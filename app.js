@@ -59,6 +59,19 @@ io.sockets.on('connection', function (socket) {
   }
 
   /*
+   * Function: 'HashLength'
+   * Gets the length of a hash map
+   * 
+   */  
+  function HashLength (obj) {
+      var size = 0, key;
+      for (key in obj) {
+        if (obj.hasOwnProperty(key)) size++;
+      }
+      return size;
+  };
+
+  /*
    * Function: 'getRoomPlaylist'
    * Gets the current room's playlist
    * 
@@ -129,14 +142,7 @@ io.sockets.on('connection', function (socket) {
   socket.on('new room', function (roomName) {
     
     // Generate the new room's ID
-    io.sockets.manager.rooms.size = function(obj) {
-      var size = 0, key;
-      for (key in obj) {
-        if (obj.hasOwnProperty(key)) size++;
-      }
-      return size;
-    };
-    currRoomID = io.sockets.manager.rooms.size();
+    currRoomID = HashLength(io.sockets.manager.rooms);
 
     // Create and subscribe the client to the new room
     socket.join(currRoomID);
@@ -165,6 +171,7 @@ io.sockets.on('connection', function (socket) {
   socket.on('addvideo', function (data) {
     console.log(data['url']);
     addVideo(data['url']);
+    io.sockets.in(currRoomID).emit('newvideo', data['url']);
   });  
 
 });
