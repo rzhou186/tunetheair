@@ -111,7 +111,7 @@
 	position: fixed;
 	right: 0;
 	top: 40px;
-	height: calc(100% - 230px);
+	/*height: calc(100% - 230px);*/
 	width: calc(100% - 301px);
 	padding: 75px 0px 75px 0px;
 	text-align: center;
