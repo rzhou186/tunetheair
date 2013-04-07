@@ -39,7 +39,7 @@ function initSocket(socket, roomID){
     if (videoList.getLength() == 1) player.stopVideo();
 
     alert('Successfully joined room!');
-    alert(roomID);
+    document.getElementById('room-id').value = roomID;
   });
   
   /*

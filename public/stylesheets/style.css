@@ -1,9 +1,9 @@
 .main-components {
-	display: none;
+	/*display: none;*/
 }
 
 .landing-window {
-	/*display: none; */
+	display: none;
 	background-image: url('/images/clouds.png');
   background-repeat: no-repeat;
   background-size: cover;

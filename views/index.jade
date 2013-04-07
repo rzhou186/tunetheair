@@ -7,9 +7,6 @@ block content
 		.head Tune the Air
 		.subhead Create & share a live Youtube playlist of songs with your friends!
 		.screenshot
-		<input type='text' id='yturl'>
-		<div id = 'ytplayer'></div>
-		<div id = 'songqueue'></div>
 		button#new-room.btn.btn-primary.btn-large Start mixing!
 		p - or -
 		.form#join-room
@@ -52,5 +49,7 @@ block content
 		// -------------------- App Window ------------------- //
 		.app-window
 			.room-name The Big Hack 2013
-			.room-ID Share this room: <input type="text" class="input-medium search-query">
-			.video-curr
+			.room-ID Share this room: <input type="text" id="room-id" class="input-medium search-query" readonly="true">
+						<br><br>
+						<div id = 'ytplayer'></div>
+						<div id = 'songqueue'></div>        
