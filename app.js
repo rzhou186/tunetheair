@@ -54,7 +54,7 @@ io.sockets.on('connection', function (socket) {
    * Gets a room from the list of rooms, provided the room ID
    * 
    */
-  function getRoom (roomID)
+  function getRoom (roomID) {
     return io.sockets.manager.rooms['/' + roomID];
   }
 
@@ -137,6 +137,10 @@ io.sockets.on('connection', function (socket) {
     // Name the current room
     setRoomName(roomName);
 
+    // Initialize the room playlist
+    var currRoom = getRoom(currRoomID);
+    currRoom.playlist = new Array();
+
     socket.emit('join room', currRoomID, getRoomName(), getRoomPlaylist());
 
   });
@@ -150,5 +154,11 @@ io.sockets.on('connection', function (socket) {
   socket.on('unsubscribe', function () {
     socket.leave(currRoomID);
   });
+
+  socket.on('addvideo', function (data) {
+    console.log(data['url']);
+    io.sockets.emit('newvideo', data['url']);
+    addVideo(data['url']);
+  });  
 
 });
