@@ -23,10 +23,10 @@ $(document).ready(function(){
 	socket = io.connect(window.location.hostname);
 	initSocket(socket, roomID);
 
-	// Initialize room creating and joining
+	// Initialize room creating and joining button
 	$('#new-room').click(function(){
-		// Ask for title of room
-		socket.emit('new room', 'sample title');
+		$('#new-room').button('loading');
+		// socket.emit('new room', 'sample title');
 	});
 
 	// Initialize leave room button

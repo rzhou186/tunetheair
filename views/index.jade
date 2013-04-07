@@ -3,13 +3,38 @@ extends layout
 block content
 
 	// -------------------- Landing Components ------------------- //
-	.landing-window
-		.head Tune the Air
-		.subhead Create & share a live Youtube playlist of songs with your friends!
-		button#new-room.btn.btn-primary.btn-large.disabled(data-loading-text='Generating room...') Start mixing!
-		p - or -
-		.form#join-room
-			input#submit-roomID.search-query(type='text', placeholder='Enter a room ID')
+	.landing-components
+
+		.hero-container
+			.head Tune the Air
+			img#logo(src='/images/logo.png');
+			.subhead Create & share a live Youtube playlist of songs with your friends.
+			button#new-room.btn.btn-primary.disabled(type='button', data-loading-text='Generating room...') Start mixing!
+			p — or —
+			.form
+				input#submit-roomID.search-query(type='text', placeholder='Enter an existing room ID to join')
+
+		.share-window
+
+			// Fork button (Github)
+			iframe(src='http://ghbtns.com/github-btn.html?user=rzhou186&repo=tunetheair&type=fork', allowtransparency='true', frameborder='0', scrolling='0', width='53', height='20')
+
+			// Like button (Facebook)
+			.fb-like(data-href='http://tunetheair.herokuapp.com', data-send='false', data-layout='button_count', data-width='450', data-show-faces='false')
+
+			// Tweet button (Twitter)
+			a.twitter-share-button(href='https://twitter.com/share', data-lang='en') Tweet
+			script
+				!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+
+			// +1 button (Google+)
+			.g-plusone(data-size='medium')
+			script(type='text/javascript')
+				(function() {
+					var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+					po.src = 'https://apis.google.com/js/plusone.js';
+					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+				})();
 
 	// -------------------- Main App Components ------------------- //
 

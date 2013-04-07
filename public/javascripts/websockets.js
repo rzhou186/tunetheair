@@ -43,7 +43,7 @@ function initSocket(socket, roomID){
       }
     }
 
-    $('.landing-window').hide();
+    $('.landing-components').hide();
     $('.main-components').show();
     document.getElementById('room-id').value = roomID;
   });

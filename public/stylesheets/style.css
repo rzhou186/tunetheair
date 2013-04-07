@@ -2,7 +2,32 @@
 	display: none;
 }
 
-.landing-window {
+.landing-components {
+	/*display: none;*/
+	overflow: auto;
+	text-align: center;
+	padding-bottom: 70px;
+}
+
+.landing-components .share-window {
+	width: 100%;
+	padding: 12px 0px 10px 0px;
+	background-color: #F5F5F5;
+	border-bottom-color: #DDDDDD;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-top-color: #DDDDDD;
+	border-top-style: solid;
+	border-top-width: 1px;
+}
+
+.fb-like {
+	top: -3px;
+	margin-right: 20px;
+	margin-left: 20px;
+}
+
+.landing-components .hero-container {
 	/*display: none;*/
 	background-image: url('/images/clouds.png');
   background-repeat: no-repeat;
@@ -10,47 +35,52 @@
   -webkit-background-size: cover;
      -moz-background-size: cover;
 			 -o-background-size: cover;
-	z-index: 900000;
-	position: fixed;
-	padding: 70px 0px 40px 0px;
-	top: 0px;
+	padding: 100px 0px 0px 0px;
 	width: 100%;
-	height: calc(100% - 150px);
-	overflow: scroll;
-	text-align: center;
+	height: 350px;
 }
 
-.landing-window .head {
+.landing-components .hero-container #logo{
+	display: inline;
+	height: 200px;
+	margin-top: -80px;
+	margin-left: 20px;
+}
+
+.landing-components .hero-container .head {
 	font-family: "HelveticaNeue-UltraLight", "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-  font-size: 70px;
-  margin-bottom: 50px;
+  font-size: 120px;
+  display: inline;
 }
 
-.landing-window .subhead {
+.landing-components .hero-container .subhead {
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-	font-size: 24px;
-	margin-bottom: 45px;
+	font-size: 30px;
+	margin-top: 20px;
+	margin-bottom: 50px;
 }
 
-.landing-window .btn {
+.landing-components .hero-container .btn {
 	display: inline-block;
-	width: 200px;
+	width: 300px;
+	height: 50px;
+	font-size: 18px;
 }
 
-.landing-window p {
+.landing-components .hero-container p {
 	display: inline-block;
 	margin: 0px 20px 0px 20px;
-	font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 	font-size: 18px;
 	font-weight: bold;
+	margin: 0px 40px 0px 40px;
 }
 
-.landing-window .form{
+.landing-components .hero-container .form{
 	display: inline-block;
 }
 
-.landing-window .form input{
-	width: 200px;
+.landing-components .hero-container .form input{
+	width: 250px;
 }
 
 .navbar-fixed-top {
@@ -80,7 +110,7 @@
 	top: 40px;
 	width: 300px;
 	height: calc(100% - 80px);
-	overflow-y: scroll;
+	overflow-y: auto;
 	border-right-color: rgb(221, 221, 221);
 	border-right-style: solid;
 	border-right-width: 1px;
@@ -115,7 +145,7 @@
 	width: calc(100% - 301px);
 	padding: 75px 0px 75px 0px;
 	text-align: center;
-	overflow: scroll;
+	overflow: auto;
 }
 
 .app-window .room-name {
