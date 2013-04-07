@@ -32,7 +32,7 @@ function initSocket(socket, roomID){
     }
 
     alert('Successfully joined room!');
-
+    alert(roomID);
   });
   
   /*
