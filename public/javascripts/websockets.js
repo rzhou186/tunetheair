@@ -38,7 +38,9 @@ function initSocket(socket, roomID){
     }
     updateSideBar();
     if (videoList.getLength() >= 1) {
-      player.stopVideo();    
+      if (player !== undefined) {
+        player.stopVideo();
+      }
     }
 
     $('.landing-window').hide();
