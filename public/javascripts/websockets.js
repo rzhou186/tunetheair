@@ -33,9 +33,6 @@ function initSocket(socket, roomID){
     for (var j=0; j<playlist.length; i++){
       videoList.enqueue(get_yt_embed(playlist[j]));
     }
-    for(var k = 0; k < playlist.length; i++) {
-      console.log(get_yt_embed(playlist[k]));
-    }
     alert('Successfully joined room!');
     alert(roomID);
   });

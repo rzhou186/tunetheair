@@ -27,10 +27,6 @@ $(document).ready(function(){
 		socket.emit('new room', 'sample title');
 	});
 
-	$('#join-room').click(function(){
-		socket.emit('subscribe', 1);
-	});
-
   document.getElementById('yturl').addEventListener("keydown", function(e) {
     if (!e) { var e = window.event; }
     // Enter is pressed
@@ -43,6 +39,15 @@ $(document).ready(function(){
       }
     }
   }, false); 
+
+  document.getElementById('submit-roomID').addEventListener("keydown", function(e) {
+    if (!e) { var e = window.event; }
+    // Enter is pressed
+    if (e.keyCode == 13) {
+      var id = document.getElementById('submit-roomID').value;
+      socket.emit('subscribe', id);
+    }
+  }, false);
 
 });
 
