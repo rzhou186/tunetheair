@@ -32,15 +32,6 @@
 	margin-bottom: 45px;
 }
 
-.landing-window .screenshot {
-	background-color: red;
-	height: 350px;
-	width: 600px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 45px;
-}
-
 .landing-window .btn {
 	display: inline-block;
 	width: 200px;

@@ -51,7 +51,6 @@ $(document).ready(function(){
     // Enter is pressed
     if (e.keyCode == 13) {
       var id = document.getElementById('submit-roomID').value;
-      alert("trying to subscribe to "+ id);
       socket.emit('subscribe', id);
     }
   }, false);
