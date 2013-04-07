@@ -85,9 +85,6 @@ io.sockets.on('connection', function (socket) {
    */
   function addVideo (videoName){
     var currRoom = getRoom(currRoomID);
-    if (currRoom.playlist === undefined) {
-      currRoom.playlist = new Array();
-    }
     currRoom.playlist[currRoom.playlist.length] = videoName;
   }
 
@@ -140,6 +137,10 @@ io.sockets.on('connection', function (socket) {
     // Name the current room
     setRoomName(roomName);
 
+    // Initialize the room playlist
+    var currRoom = getRoom(currRoomID);
+    currRoom.playlist = new Array();
+
     socket.emit('join room', currRoomID, getRoomName(), getRoomPlaylist());
 
   });
@@ -156,7 +157,7 @@ io.sockets.on('connection', function (socket) {
 
   socket.on('addvideo', function (data) {
     console.log(data['url']);
-    //io.sockets.emit('newvideo', data['url']);
+    io.sockets.emit('newvideo', data['url']);
     addVideo(data['url']);
   });  
 
