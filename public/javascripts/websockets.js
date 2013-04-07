@@ -34,7 +34,6 @@ function initSocket(socket, roomID){
       videoList.dequeue();
 
     for (var j=0; j<playlist.length; j++){
-      alert("got playlist item " + playlist[j]);
       videoList.enqueue(get_yt_embed(playlist[j]));
     }
     if (videoList.getLength() == 1) player.stopVideo();
