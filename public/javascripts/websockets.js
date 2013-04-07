@@ -27,9 +27,9 @@ function initSocket(socket, roomID){
     setCookie('roomID', roomID, 365);
 
     // Append all videos in the current playlist to the     
-    for (var i=0; i<playlist.length; i++){
-      document.getElementById('songqueue').innerHTML += get_yt_embed(playlist[i]);
-    }
+    //for (var i=0; i<playlist.length; i++){
+    //  document.getElementById('songqueue').innerHTML += get_yt_embed(playlist[i]);
+    //}
     for (var j=0; j<playlist.length; i++){
       videoList.enqueue(get_yt_embed(playlist[j]));
     }
@@ -43,7 +43,7 @@ function initSocket(socket, roomID){
    * 
    */
   socket.on('newvideo', function(data) {
-    document.getElementById('songqueue').innerHTML = get_yt_embed(data);
+    //document.getElementById('songqueue').innerHTML = get_yt_embed(data);
     videoList.enqueue(get_yt_embed(data));
     if(videoList.getLength() == 1) player.stopVideo();
   });
