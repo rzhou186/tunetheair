@@ -49,7 +49,12 @@ function initSocket(socket, roomID){
    * 
    */
   socket.on('delete cookies', function() {
+    
     clearCookie('roomID');
+
+    // Now enable the new room button, since we know the client is not already in a room.
+    $('#new-room').removeClass('disabled');
+
   });
   
   /*

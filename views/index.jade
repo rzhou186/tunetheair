@@ -6,7 +6,7 @@ block content
 	.landing-window
 		.head Tune the Air
 		.subhead Create & share a live Youtube playlist of songs with your friends!
-		button#new-room.btn.btn-primary.btn-large Start mixing!
+		button#new-room.btn.btn-primary.btn-large.disabled(data-loading-text='Generating room...') Start mixing!
 		p - or -
 		.form#join-room
 			input#submit-roomID.search-query(type='text', placeholder='Enter a room ID')
