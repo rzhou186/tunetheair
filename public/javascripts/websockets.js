@@ -37,14 +37,15 @@ function initSocket(socket, roomID){
       videoList.enqueue(get_yt_embed(playlist[j]));
     }
     updateSideBar();
-    if (videoList.getLength() >= 1) {
-      if (player !== undefined) {
+   /* if (videoList.getLength() >= 1) {
+      if (player !== undefined && player !== null) {
         player.stopVideo();
       }
-    }
+    }*/
 
     $('.landing-components').hide();
     $('.main-components').show();
+    $('.room-name').html(roomName);
     document.getElementById('room-id').value = roomID;
   });
 
@@ -77,16 +78,14 @@ function initSocket(socket, roomID){
 }
 
 function updateSideBar() {
+  document.getElementById('sbl').innerHTML = "";
   var queueLen = videoList.getLength();
-  for (i=1; i<4; i++) {
-    if (queueLen > i) {
-      var id = videoList.peek2(i);
-      get_yt_title(id, document.getElementById('vp-'+i).getElementsByClassName('info')[0]);
-      document.getElementById('vp-'+i).getElementsByClassName('icon')[0].innerHTML = "<img src='http://img.youtube.com/vi/" + id + "/hqdefault.jpg'>";
-    } else {
-      document.getElementById('vp-'+i).getElementsByClassName('info')[0].innerHTML = '';
-      document.getElementById('vp-'+i).getElementsByClassName('icon')[0].innerHTML = '';      
-    }
+  for (i=1; i<queueLen; i++) {
+    var newDiv = "<div id=\"vp-"+i+"\" class=\"video-preview\"><div class=\"icon\"><img src=\"/images/video.png\"></div><div class=\"info\"></div></div>";
+    document.getElementById('sbl').innerHTML += newDiv;
+    var id = videoList.peek2(i);
+    get_yt_title(id, i);
+    document.getElementById('vp-'+i).getElementsByClassName('icon')[0].innerHTML = "<img src='http://img.youtube.com/vi/" + id + "/hqdefault.jpg'>";
   }
 }
 

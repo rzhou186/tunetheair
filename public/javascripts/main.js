@@ -12,10 +12,10 @@ var socket;
 $(document).ready(function(){
 
   // Download the iframe API
-  var tag = document.createElement('script');
+  /*var tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
   var firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag); */
 	// Check cookies for current room name and ID (if any)
 	var roomID = getCookie('roomID');
 
@@ -26,7 +26,7 @@ $(document).ready(function(){
 	// Initialize room creating and joining button
 	$('#new-room').click(function(){
 		$('#new-room').button('loading');
-		// socket.emit('new room', 'sample title');
+		socket.emit('new room', prompt("Enter a room name"));
 	});
 
 	// Initialize leave room button
@@ -78,10 +78,10 @@ function get_yt_embed(url) {
  * Function: 'get_yt_title'
  * Fetches Youtube video title
  */
-function get_yt_title(ytid, element) {
+function get_yt_title(ytid, i) {
   $.get('https://gdata.youtube.com/feeds/api/videos/' + ytid + '?v=2', function (xml) {
       var s = $(xml).find('entry').find('title').text();
-      element.innerHTML = s.slice(0, s.length/2);
+      document.getElementById('vp-'+i).getElementsByClassName('info')[0].innerHTML = s.slice(0, s.length/2);
   });
 }
 
