@@ -18,7 +18,7 @@ function setCookie(name, value, numDays){
 	expireDate.setDate(expireDate.getDate() + numDays);
 
 	// Encode cookie value
-	var encodedValue = escape(value)  + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+	var encodedValue = escape(value)  + ((numDays==null) ? "" : "; expires="+expire.toUTCString());
 	
 	// Set current cookie
 	document.cookie = name + "=" + encodedValue;
