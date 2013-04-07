@@ -81,4 +81,9 @@ function Queue(){
 
   }
 
+  /* Peek further */
+  this.peek2 = function(i) {
+    return (queue.length > i ? queue[offset+i] : undefined);
+  }
+
 }
