@@ -115,7 +115,7 @@ io.sockets.on('connection', function (socket) {
       socket.join(roomID);
       currRoomID = roomID;
 
-      socket.emit('join room', getRoomName(), getRoomPlaylist());
+      socket.emit('join room', roomID, getRoomName(), getRoomPlaylist());
 
     }
 
@@ -129,7 +129,14 @@ io.sockets.on('connection', function (socket) {
   socket.on('new room', function (roomName) {
     
     // Generate the new room's ID
-    currRoomID = io.sockets.manager.rooms.length;
+    io.sockets.manager.rooms.size = function(obj) {
+      var size = 0, key;
+      for (key in obj) {
+        if (obj.hasOwnProperty(key)) size++;
+      }
+      return size;
+    };
+    currRoomID = io.sockets.manager.rooms.size();
 
     // Create and subscribe the client to the new room
     socket.join(currRoomID);
@@ -157,7 +164,6 @@ io.sockets.on('connection', function (socket) {
 
   socket.on('addvideo', function (data) {
     console.log(data['url']);
-    io.sockets.emit('newvideo', data['url']);
     addVideo(data['url']);
   });  
 

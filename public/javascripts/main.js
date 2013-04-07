@@ -22,6 +22,10 @@ $(document).ready(function(){
 		socket.emit('new room', 'sample title');
 	});
 
+	$('#join-room').click(function(){
+		socket.emit('subscribe', 0);
+	});
+
   document.getElementById('yturl').addEventListener("keydown", function(e) {
     if (!e) { var e = window.event; }
     // Enter is pressed
