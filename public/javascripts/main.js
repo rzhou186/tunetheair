@@ -20,10 +20,6 @@ $(document).ready(function(){
 	// Initialize Socket.io
 	var socket = io.connect(window.location.hostname);
 	initSocket(socket, roomID);
-  if (roomID !== null) {
-  	alert(roomID);
-    socket.emit('subscribe', roomID);
-  }
 
 	// Initialize room creating and joining
 	$('#new-room').click(function(){
