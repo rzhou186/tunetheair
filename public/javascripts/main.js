@@ -20,7 +20,8 @@ $(document).ready(function(){
 	// Initialize Socket.io
 	var socket = io.connect(window.location.hostname);
 	initSocket(socket, roomID);
-  if (roomID !== undefined) {
+  if (roomID !== null) {
+  	alert(roomID);
     socket.emit('subscribe', roomID);
   }
 
@@ -32,10 +33,8 @@ $(document).ready(function(){
 
 	// Initialize leave room button
 	$('#leave-room').click(function(){
-
 		clearCookie('roomID');
 		location.reload();
-
 	});
 
   document.getElementById('yturl').addEventListener("keydown", function(e) {
