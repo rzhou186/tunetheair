@@ -84,6 +84,7 @@ function get_yt_embed(url) {
 function get_yt_title(ytid) {
   $.get('https://gdata.youtube.com/feeds/api/videos/' + ytid + '?v=2', function (xml) {
       alert($(xml).find('entry').find('title').text());
+      // TODO this should return the above except it's asynchronous so wtf
   });
 }
 
