@@ -31,6 +31,7 @@ function initSocket(socket, roomID){
     //  document.getElementById('songqueue').innerHTML += get_yt_embed(playlist[i]);
     //}
     for (var j=0; j<playlist.length; j++){
+      alert("got playlist item " + playlist[j]);
       videoList.enqueue(get_yt_embed(playlist[j]));
     }
     
