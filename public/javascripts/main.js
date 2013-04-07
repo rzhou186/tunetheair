@@ -31,6 +31,7 @@ $(document).ready(function(){
 
 	// Initialize leave room button
 	$('#leave-room').click(function(){
+		event.preventDefault();
 		clearCookie('roomID');
 		location.reload();
 	});

@@ -8,11 +8,11 @@ block content
 		.hero-container
 			.head Tune the Air
 			img#logo(src='/images/logo.png');
-			.subhead Create & share a live Youtube playlist of songs with your friends.
+			.subhead Transform any audio device into speakers controlled by the cloud.
 			button#new-room.btn.btn-primary.disabled(type='button', data-loading-text='Generating room...') Start mixing!
 			p — or —
 			.form
-				input#submit-roomID.search-query(type='text', placeholder='Enter an existing room ID to join')
+				input#submit-roomID.search-query(type='text', placeholder='Enter an existing room ID')
 
 		.share-window
 
@@ -55,7 +55,7 @@ block content
 										input#yturl.search-query.span7(type='text', placeholder='Add a new track...')
 								ul.nav
 									li
-										a#leave-room Leave Room
+										a#leave-room(href='') Leave Room
 
 		// -------------------- Sidebar (Left) ------------------- //
 		.sidebar-left#sbl

@@ -105,11 +105,11 @@
 .sidebar-left {
 	background-image: url("/images/fabric_of_squares_gray.png");
   background-repeat: repeat;
+  z-index: 90001;
 	position: fixed;
 	left: 0;
 	top: 40px;
 	width: 400px;
-	height: calc(100% - 80px);
 	overflow-y: auto;
 	border-right-color: rgb(221, 221, 221);
 	border-right-style: solid;
@@ -142,13 +142,12 @@
 
 .app-window {
 	position: fixed;
+	z-index: 90000;
 	right: 0;
 	top: 40px;
-	/*height: calc(100% - 230px);*/
-	width: calc(100% - 301px);
 	padding: 75px 0px 75px 0px;
 	text-align: center;
-	overflow: auto;
+	overflow-y: auto;
 }
 
 .app-window .room-name {
