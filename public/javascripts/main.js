@@ -16,6 +16,12 @@ $(document).ready(function(){
 	var socket = io.connect(window.location.hostname);
 	initSocket(socket, roomID);
 
+	// Initialize room creating and joining
+	$('#new-room').click(function(){
+		// Ask for title of room
+		socket.emit('new room', 'sample title');
+	});
+
   document.getElementById('yturl').addEventListener("keydown", function(e) {
     if (!e) { var e = window.event; }
     // Enter is pressed
@@ -28,7 +34,7 @@ $(document).ready(function(){
       }
     }
   }, false);
-  
+
 });
 
 /*

@@ -60,12 +60,22 @@ io.sockets.on('connection', function (socket) {
 
   /*
    * Function: 'getRoomPlaylist'
-   * Gets the current room's palylist
+   * Gets the current room's playlist
    * 
    */
   function getRoomPlaylist (){
     var currRoom = getRoom(currRoomID);
     return currRoom.playlist;
+  }
+
+  /*
+   * Function: 'getRoomName'
+   * Gets the current room's name
+   * 
+   */
+  function getRoomName (){
+    var currRoom = getRoom(currRoomID);
+    return currRoom.name;
   }
 
   /*
@@ -76,6 +86,16 @@ io.sockets.on('connection', function (socket) {
   function addVideo (videoName){
     var currRoom = getRoom(currRoomID);
     currRoom.playlist[currRoom.playlist.length] = videoName;
+  }
+
+  /*
+   * Function: 'changeRoomName'
+   * Modifies the current room name
+   * 
+   */
+  function setRoomName (roomName){
+    var currRoom = getRoom(currRoomID);
+    currRoom.name = roomName;
   }
 
   /* -------------- Actions & Listeners --------------- */
@@ -95,11 +115,31 @@ io.sockets.on('connection', function (socket) {
       socket.join(roomID);
       currRoomID = roomID;
 
-      socket.emit('join room', getRoomPlaylist());
+      socket.emit('join room', getRoomName(), getRoomPlaylist());
 
     }
 
   });  
+
+  /*
+   * Listener: 'new room'
+   * Creates a new room, then subscribes the client to it.
+   * 
+   */
+  socket.on('new room', function (roomName) {
+    
+    // Generate the new room's ID
+    currRoomID = io.sockets.manager.rooms.length;
+
+    // Create and subscribe the client to the new room
+    socket.join(currRoomID);
+
+    // Name the current room
+    setRoomName(roomName);
+
+    socket.emit('join room', currRoomID, getRoomName(), getRoomPlaylist());
+
+  });
 
   /*
    * Listener: 'unsubscribe'
@@ -108,7 +148,7 @@ io.sockets.on('connection', function (socket) {
    * 
    */
   socket.on('unsubscribe', function () {
-    
+    socket.leave(currRoomID);
   });
 
 });

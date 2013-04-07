@@ -8,7 +8,7 @@
 function initSocket(socket, roomID){
 
 	/*
-   * Listener: 'get room'
+   * Listener: 'fetch room data'
    * Sends the client's room name and ID back to the server
    * 
    */
@@ -21,14 +21,19 @@ function initSocket(socket, roomID){
    * 
    * 
    */
-  socket.on('join room', function (playlist) {
+  socket.on('join room', function (roomID, roomName, playlist) {
+
+    // Update the client's cookies
+    setCookie('roomID', roomID, 365);
 
     // Append all videos in the current playlist to the     
+    /*
     for (var i=0; i<playlist.length; i++){
-
       document.getElementById('songqueue').innerHTML += get_yt_embed(data);
-
     }
+    */
+
+    alert('Successfully joined room!');
 
   });
   
