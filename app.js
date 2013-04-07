@@ -54,7 +54,7 @@ io.sockets.on('connection', function (socket) {
    * Gets a room from the list of rooms, provided the room ID
    * 
    */
-  function getRoom (roomID)
+  function getRoom (roomID) {
     return io.sockets.manager.rooms['/' + roomID];
   }
 
