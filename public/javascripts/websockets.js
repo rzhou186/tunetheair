@@ -30,9 +30,10 @@ function initSocket(socket, roomID){
     //for (var i=0; i<playlist.length; i++){
     //  document.getElementById('songqueue').innerHTML += get_yt_embed(playlist[i]);
     //}
-    for (var j=0; j<playlist.length; i++){
+    for (var j=0; j<playlist.length; j++){
       videoList.enqueue(get_yt_embed(playlist[j]));
     }
+    
     alert('Successfully joined room!');
     alert(roomID);
   });

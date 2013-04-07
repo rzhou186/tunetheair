@@ -174,4 +174,10 @@ io.sockets.on('connection', function (socket) {
     io.sockets.in(currRoomID).emit('newvideo', data['url']);
   });  
 
+  socket.on('dequeuevideo', function () {
+    console.log('dequeueing video!!');
+    var currRoom = getRoom(currRoomID);
+    currRoom.playlist.shift();
+  });
+
 });

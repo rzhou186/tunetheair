@@ -42,6 +42,7 @@
                 videoList.dequeue();
                 if(!videoList.isEmpty()) 
                   player.loadVideoById(videoList.peek());
+                socket.emit('removevideo');
           }
           if(event.data == YT.PlayerState.CUED) {
 
