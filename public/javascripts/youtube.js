@@ -25,7 +25,6 @@
   // Called when player is ready
   function onPlayerReady(event) {
      //  player.loadPlaylist(['mGalEx6ufUw', 'TaCUBtzKAnA', '4v8SPz4VfsU']);
-       alert("Player is ready");
      //  player.playVideo();
   }
 
