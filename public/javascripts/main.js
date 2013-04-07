@@ -5,6 +5,8 @@
  * 
  */
 
+var socket;
+
 /* -------------------- Webpage Initialization -------------------- */
 
 $(document).ready(function(){
@@ -18,7 +20,7 @@ $(document).ready(function(){
 	var roomID = getCookie('roomID');
 
 	// Initialize Socket.io
-	var socket = io.connect(window.location.hostname);
+	socket = io.connect(window.location.hostname);
 	initSocket(socket, roomID);
   if (roomID !== null) {
   	alert(roomID);
