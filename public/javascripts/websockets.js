@@ -45,6 +45,7 @@ function initSocket(socket, roomID){
 
     $('.landing-window').hide();
     $('.main-components').show();
+    $('.room-name').html(roomName);
     document.getElementById('room-id').value = roomID;
   });
 

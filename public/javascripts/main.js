@@ -26,7 +26,7 @@ $(document).ready(function(){
 	// Initialize room creating and joining
 	$('#new-room').click(function(){
 		// Ask for title of room
-		socket.emit('new room', 'sample title');
+		socket.emit('new room', prompt("Enter a room name"));
 	});
 
 	// Initialize leave room button
