@@ -1,13 +1,54 @@
 extends layout
 
 block content
-	.container
+
+	// -------------------- Landing Components ------------------- //
+	.landing-window
+		.head Tune the Air
+		.subhead Create & share a live Youtube playlist of songs with your friends!
+		.screenshot
+		
+		button#new-room.btn.btn-primary.btn-large Start mixing!
+		p - or -
+		.form#join-room
+			input#submit-roomID.search-query(type='text', placeholder='Enter a room ID')
+
+	// -------------------- Main App Components ------------------- //
+
+	.main-components
+
+		// -------------------- Navbar (Top) ------------------- //
+		.navbar
+			.navbar-inverse
+				.navbar-fixed-top
+					.navbar-inner
+						.container
+							.pull-left
+								ul.nav
+									li
+										a(href='') Home
+								.nav
+									form#video-search
+										.navbar-search 
+											input#room-sharer.search-query.span7(type='text', placeholder='Add a new track...')
+
+		// -------------------- Sidebar (Left) ------------------- //
+		.sidebar-left
+			.video-preview
+				.icon
+					img(src='/images/video.png');
+				.info
+			.video-preview
+				.icon
+					img(src='/images/video.png');
+				.info
+			.video-preview
+				.icon
+					img(src='/images/video.png');
+				.info
+
+		// -------------------- App Window ------------------- //
 		.app-window
-			.playlist
-				.title
-					button#new-room.btn.btn-primary new room
-					button#join-room.btn.btn-primary join the room
-					p
-						strong Song Queue
-						<br><br><input type='text' id='yturl'>
-						<div id='songqueue'></div>
+			.room-name The Big Hack 2013
+			.room-ID Share this room: <input type="text" class="input-medium search-query">
+			.video-curr
