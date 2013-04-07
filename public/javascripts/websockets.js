@@ -59,7 +59,7 @@ function initSocket(socket, roomID){
     clearCookie('roomID');
 
     // Now enable the new room button, since we know the client is not already in a room.
-    $('#new-room').text('Open new room!');
+    $('#new-room').text('Start mixing!');
     $('#new-room').removeClass('disabled');
 
   });
