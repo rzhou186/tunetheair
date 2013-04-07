@@ -28,7 +28,7 @@ function initSocket(socket, roomID){
 
     // Append all videos in the current playlist to the     
     for (var i=0; i<playlist.length; i++){
-      document.getElementById('songqueue').innerHTML += get_yt_embed(data);
+      document.getElementById('songqueue').innerHTML += get_yt_embed(playlist[i]);
     }
 
     alert('Successfully joined room!');

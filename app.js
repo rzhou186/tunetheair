@@ -164,7 +164,6 @@ io.sockets.on('connection', function (socket) {
 
   socket.on('addvideo', function (data) {
     console.log(data['url']);
-    io.sockets.emit('newvideo', data['url']);
     addVideo(data['url']);
   });  
 
