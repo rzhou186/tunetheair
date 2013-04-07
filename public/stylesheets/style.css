@@ -83,8 +83,12 @@
 	width: 250px;
 }
 
-.landing-components .marketing {
-	
+.landing-components .marketing h1 {
+	margin: 60px 0px 20px 0px;
+}
+
+.landing-components .marketing img {
+	max-width: 200px;
 }
 
 .navbar-fixed-top {
