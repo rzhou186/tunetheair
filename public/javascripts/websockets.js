@@ -27,11 +27,9 @@ function initSocket(socket, roomID){
     setCookie('roomID', roomID, 365);
 
     // Append all videos in the current playlist to the     
-    /*
     for (var i=0; i<playlist.length; i++){
       document.getElementById('songqueue').innerHTML += get_yt_embed(data);
     }
-    */
 
     alert('Successfully joined room!');
 

@@ -85,6 +85,9 @@ io.sockets.on('connection', function (socket) {
    */
   function addVideo (videoName){
     var currRoom = getRoom(currRoomID);
+    if (currRoom.playlist === undefined) {
+      currRoom.playlist = new Array();
+    }
     currRoom.playlist[currRoom.playlist.length] = videoName;
   }
 
@@ -150,5 +153,11 @@ io.sockets.on('connection', function (socket) {
   socket.on('unsubscribe', function () {
     socket.leave(currRoomID);
   });
+
+  socket.on('addvideo', function (data) {
+    console.log(data['url']);
+    //io.sockets.emit('newvideo', data['url']);
+    addVideo(data['url']);
+  });  
 
 });
