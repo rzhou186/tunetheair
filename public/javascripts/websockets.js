@@ -30,11 +30,15 @@ function initSocket(socket, roomID){
     //for (var i=0; i<playlist.length; i++){
     //  document.getElementById('songqueue').innerHTML += get_yt_embed(playlist[i]);
     //}
+    while (!videoList.isEmpty())
+      videoList.dequeue();
+
     for (var j=0; j<playlist.length; j++){
       alert("got playlist item " + playlist[j]);
       videoList.enqueue(get_yt_embed(playlist[j]));
     }
-    
+    if (videoList.getLength() == 1) player.stopVideo();
+
     alert('Successfully joined room!');
     alert(roomID);
   });
