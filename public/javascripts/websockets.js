@@ -43,6 +43,15 @@ function initSocket(socket, roomID){
     $('.main-components').show();
     document.getElementById('room-id').value = roomID;
   });
+
+  /*
+   * Listener: 'delete cookies'
+   * Deletes all of the client's cookies
+   * 
+   */
+  socket.on('delete cookies', function() {
+    clearCookie('roomID');
+  });
   
   /*
    * Listener: 'newvideo'

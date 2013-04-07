@@ -123,13 +123,17 @@ io.sockets.on('connection', function (socket) {
    */
   socket.on('subscribe', function (roomID) {
 
-    if (roomID !== null){
+    if (roomID !== null && getRoom(roomID) !== undefined){
 
       socket.join(roomID);
       currRoomID = roomID;
 
       socket.emit('join room', roomID, getRoomName(), getRoomPlaylist());
 
+    }
+
+    else {
+      socket.emit('delete cookies');
     }
 
   });  
@@ -156,16 +160,6 @@ io.sockets.on('connection', function (socket) {
 
     socket.emit('join room', currRoomID, getRoomName(), getRoomPlaylist());
 
-  });
-
-  /*
-   * Listener: 'unsubscribe'
-   * Unsubscribes the socket from its current room.
-   * Triggered whenever any socket disconnects.
-   * 
-   */
-  socket.on('unsubscribe', function () {
-    socket.leave(currRoomID);
   });
 
   socket.on('addvideo', function (data) {
