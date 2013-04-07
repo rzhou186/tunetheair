@@ -82,8 +82,8 @@ function get_yt_embed(url) {
  * Fetches Youtube video title
  */
 function get_yt_title(ytid) {
-  $.get('https://gdata.youtube.com/feeds/api/videos/' + ytid + '?v=2', function (data) {
-    alert(data);
+  $.get('https://gdata.youtube.com/feeds/api/videos/' + ytid + '?v=2', function (xml) {
+      alert($(xml).find('entry').find('title').text());
   });
 }
 
