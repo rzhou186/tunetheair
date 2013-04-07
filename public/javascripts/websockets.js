@@ -39,6 +39,8 @@ function initSocket(socket, roomID){
     if (videoList.getLength() == 1) player.stopVideo();
 
     alert('Successfully joined room!');
+    $('.landing-window').hide();
+    $('.main-components').show();
     document.getElementById('room-id').value = roomID;
   });
   
